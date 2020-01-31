@@ -1,3 +1,9 @@
+/*NAME : DINESH BHARAT NIKAM
+ROLL NO 48
+DATE OF PERFORMANCE :    /    /20
+DATE OF CORRECTION :    /    /20
+*/
+
 #include<iostream>
 #include<string.h>
 #include<math.h>
@@ -8,26 +14,26 @@ int icp(char x)
 	switch(x)
 	{
 		case '+':
-		
-		
+
+
 		case '-':return 1 ;
-			
-		
+
+
 		case '*':
-		
-		
+
+
 		case '/':
-		
-		
+
+
 		case '%':return 2;
-		
-		
+
+
 		case '^':return 3;
-		
-		
+
+
 		case '(':return 4;
-		
-		
+
+
 		return 5;
 	}
 }
@@ -45,14 +51,14 @@ int isp(char x)
 class post
 {
 	public :
-	
+
 	void inftopof(char inf[],char pof[])
 	{ stack s;
 	int i, j=0;
 	for(i=0;inf[i]!='\0';i++)
 	{
 		int x=inf[i];
-		
+
 if(isalnum(x))
 		{
 			pof[j++]=x;
@@ -77,12 +83,12 @@ if(isalnum(x))
 			s.push(x);
 		}
 	}	//end of for
-	
-	
+
+
 	while(!s.isEmpty())
 	{
 		pof[j++]=s.pop();
-		
+
 	}
 	pof[j]='\0';
 	}
@@ -102,28 +108,28 @@ while(i<j)
 		inf[j]=temp;
 		i++;
 		j--;
-	
+
 }
 
 }
 
 void inftopre(char inf[], char pre[])
 {  int i;
-	    
+
 		strrev(inf);
-	
+
 	for(i=0; inf[i]!='\0';i++)
 	{
 		if(inf[i]=='(')
 			inf[i]=')';
-			
+
 		else if(inf[i]==')')
 		     inf[i]='(';
-	}	
+	}
 	  inftopof(inf,pre);
 	  strrev(pre);
 	}
-	
+
 };
 
 class infix
@@ -137,9 +143,9 @@ class infix
 		case '*' :return x1 * x2;
 		case '/' :return x1 / x2;
 		case '%' :return (int)x1 % (int)x2;
-		case '^' :return pow(x1,x2);		 
+		case '^' :return pow(x1,x2);
 		}
-		return -1;	
+		return -1;
 	}
 
 	float posteval(char post[])
@@ -148,7 +154,7 @@ class infix
 		stack s;
 		for(int i=0;post[i]!='\0';i++)
 		{
-			x=post[i];              23+
+			x=post[i];
 			if(isalpha(x))
 			{
 				cout<<"\nEnter Value : of "<<x;
@@ -211,7 +217,7 @@ int main()
 
 		while(1)
 		{
-		cout<<"\nEnter choice : \n1.convert infix to postfix\n2. convert infix to prefix 				  \n3.Evaluate postfix\n4.Evaluate prifix \n5.Exit ";
+		cout<<"\nEnter choice : \n1.convert infix to postfix\n2. convert infix to prefix 				  \n3.Evaluate postfix\n4.Evaluate prifix \n5.Exit \n";
 		cin>>ch;
 		switch(ch)
 		{
@@ -221,14 +227,14 @@ int main()
 				p.inftopof(in,po);
 				cout<<po;
 				break;
-	
+
 			case 2 :
 				cout<<"Enter Equation :";
 				cin>>in;
 				p.inftopre(in,pri);
-				cout<<pri; 
+				cout<<pri;
 				break;
-	
+
 	  		case 3 :
 	  			cout<<"Enter Equation :";
 				cin>>in;
@@ -241,14 +247,54 @@ int main()
 				cin>>in;
 	  			p.strrev(in);
 	  			j=i.prieval(in);
-	  			cout<<j;	
-	  			break;	
-			
+	  			cout<<j;
+	  			break;
+
 			case 5 :
 			return 0;
 			break;
-	
+
 		}
 		}
 return 0;
 }
+/*
+Output  :
+Enter choice :
+1.convert infix to postfix
+2. convert infix to prefix
+3.Evaluate postfix
+4.Evaluate prifix
+5.Exit
+1
+Enter Equation :a+b*c
+abc*+
+Enter choice :
+1.convert infix to postfix
+2. convert infix to prefix
+3.Evaluate postfix
+4.Evaluate prifix
+5.Exit
+2
+Enter Equation :a+b*c
++a*bc
+Enter choice :
+1.convert infix to postfix
+2. convert infix to prefix
+3.Evaluate postfix
+4.Evaluate prifix
+5.Exit
+3
+Enter Equation :232^*1-
+17
+Enter choice :
+1.convert infix to postfix
+2. convert infix to prefix
+3.Evaluate postfix
+4.Evaluate prifix
+5.Exit
+4
+Enter Equation :-/*3+2121
+3
+
+*/

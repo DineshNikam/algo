@@ -1,3 +1,9 @@
+/*NAME : DINESH BHARAT NIKAM
+ROLL NO 48
+DATE OF PERFORMANCE :    /    /20
+DATE OF CORRECTION :    /    /20
+*/
+
 #include<iostream>
 #include<string.h>
 using namespace std;
@@ -7,15 +13,15 @@ class Queue
 		int pri;
 		char name[20];
 		struct node *next;
-		
+
 	}*front;
 	public:
 	Queue()
 	{
 	front =NULL;
-	
+
 	}
-	
+
 	void insert(char name[10],int pr);
 	void remove();
 	void display();
@@ -32,13 +38,13 @@ class Queue
 		if(front ==NULL)
 			front=new1;
 		else {	temp=front;
-				
+
 				while(temp!=NULL&& new1->pri<=temp->pri)
 				{
 					prev=temp;
 					temp=temp->next;
-				}	
-			
+				}
+
 		if(temp==front)
 		{
 		 new1->next=front;
@@ -51,29 +57,29 @@ class Queue
 		}
 	    }
 	}
-	
+
 	void Queue :: remove()
 	{
 		node *temp =front;
 		front =front->next;
 		cout<<"\n Patient : "<<temp->name<<"  got Out for treatment according to priority___  "<<temp->pri;
-  delete temp;		
+  delete temp;
 	}
- 
+
  void Queue :: display()
  {
-  	node *temp;	
+  	node *temp;
   	temp =front;
-  	
+
   	cout<<"\n Name  \t priority ";
   	while(temp!=NULL)
   	{
   		cout<<"\n"<<temp->name<<"\t"<<temp->pri;
   		temp=temp->next;
   	}
- 
+
  }
- 
+
 int main()
 {
 
@@ -92,27 +98,92 @@ int main()
 		cin>>name>>pri;
 				q.insert(name,pri);
 			break;
-		
+
 		case 2:if(q.empty()==1)
 		cout<<"Queue is NUll";
-		else 
+		else
 		q.remove();
 			break;
-		
+
 		case 3:
 		q.display();
 			break;
-		
+
 		case 4:
 		return 0;
 			break;
-			
+
 		default :
 		cout<<"Invalid Choice ";
-			
+
 	}
-	
+
 	}
 	return 0;
-	
+
 }
+/*
+OUTPUT
+****MENU****
+1.Insert NEW Patient in queue
+2.Remove Patient  from queue
+3.Display Patient queue
+4.Exit
+ Enter your Choice : 1
+Enter name and priority :dinesh 3
+
+****MENU****
+1.Insert NEW Patient in queue
+2.Remove Patient  from queue
+3.Display Patient queue
+4.Exit
+ Enter your Choice : 1
+Enter name and priority :bharat 2
+
+****MENU****
+1.Insert NEW Patient in queue
+2.Remove Patient  from queue
+3.Display Patient queue
+4.Exit
+ Enter your Choice : 1
+Enter name and priority :nikam 1
+
+****MENU****
+1.Insert NEW Patient in queue
+2.Remove Patient  from queue
+3.Display Patient queue
+4.Exit
+ Enter your Choice : 3
+
+ Name    priority
+dinesh  3
+bharat  2
+nikam   1
+****MENU****
+1.Insert NEW Patient in queue
+2.Remove Patient  from queue
+3.Display Patient queue
+4.Exit
+ Enter your Choice : 2
+
+ Patient : dinesh  got Out for treatment according to priority___  3
+****MENU****
+1.Insert NEW Patient in queue
+2.Remove Patient  from queue
+3.Display Patient queue
+4.Exit
+ Enter your Choice : 2
+
+ Patient : bharat  got Out for treatment according to priority___  2
+
+ ****MENU****
+ 1.Insert NEW Patient in queue
+ 2.Remove Patient  from queue
+ 3.Display Patient queue
+ 4.Exit
+  Enter your Choice : 2
+
+  Name    priority
+ nikam   1
+
+*/
